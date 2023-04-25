@@ -1,5 +1,5 @@
 # JET
-PHP Jet Engine
+PHP Jet Engine 2.0
 
 ## Setup
 
@@ -7,6 +7,8 @@ PHP Jet Engine
 
 1. Run `composer update` followed by `composer install`
 
-1. Create `.db.env` and `.base.env` from examples - Set the home dir in base env to identify where to save tmp session files
+1. Add jwt ES384 pub/priv keys
 
-1. Its set to use sass with the "compass watch" command in the root dir.  Basically you're on a mac, you should have compass installed (its a ruby gem or some shit) - when you change the SASS files in cargo just go to the root dir where config.rb is and run "composer watch" and it'll auto generate your CSS files and put them in the right spot
+1. Add .env file or run install to auto generate
+
+1. Run `npm install` to get gulp 
