@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+
+    RewriteCond %{HTTP:Authorization} ^(.+)$
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    
+    # Rewrite requests that aren't fuselage
+    RewriteCond %{REQUEST_URI} !^/docroot/
+    
+    # Rewrites domain
+    RewriteCond %{HTTP_HOST} ^(www\.)?domain\.
+    
+    # Rewrite all requests to docroot
+    RewriteRule ^(.*)$ /docroot/$1 [L]
+</IfModule>

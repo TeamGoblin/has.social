@@ -1,0 +1,21 @@
+{
+	"repositories":[
+		{
+			"type": "vcs",
+			"url":"https://github.com/lakesta/phroute"
+		},
+		{
+			"type": "vcs",
+			"url":"https://github.com/lakesta/pecee-pixie"
+		}
+	],
+    "require": {
+        "phroute/phroute": "dev-filter-params",
+        "mpdf/mpdf": "^6.1",
+        "pecee/pixie": "dev-pgsql-fix",
+        "tightenco/collect": "^9.52",
+        "sendgrid/sendgrid": "~7",
+		"vlucas/phpdotenv": "^5.3",
+		"firebase/php-jwt": "^6.4"
+    }
+}

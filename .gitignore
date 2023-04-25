@@ -1,0 +1,7 @@
+.DS_Store
+vendor/
+.sass-cache
+node_modules/
+config/.env
+config/jwtES384key.pem
+config/jwtES384pubkey.pem

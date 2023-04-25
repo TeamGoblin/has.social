@@ -1,0 +1,48 @@
+/* Mixins */
+/* ADDS A BROWSER PREFIX TO THE PROPERTY */
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+/* BORDER RADIUS */
+@mixin border-radius($radius: 5px) {
+    @include css3-prefix('border-radius', $radius);
+}
+
+/* BOX SHADOW */
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $spread: 5px, $color: rgba(0,0,0,.4)) {
+  @if ($x == "none") {
+    @include css3-prefix('box-shadow', 'none');
+  } @else {
+    @include css3-prefix('box-shadow', $x $y $blur $spread $color);
+  }
+}
+
+/* VERTICAL GRADIENT */
+@mixin gradient_vertical($from, $to) {
+  background: $from; /* Old browsers */
+  @include background-image(linear-gradient($from, $to));
+  background: -moz-linear-gradient(top, $from 0%, $to 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $from 0%, $to 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $from 0%, $to 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $from 0%, $to 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $from 0%, $to 100%); /* W3C */
+}
+
+/* HORIZONTAL GRADIENT */
+@mixin gradient_horizontal($from, $to) {
+  background: $from; /* Old browsers */
+  @include background-image(linear-gradient(to right, $from, $to));
+  background: -moz-linear-gradient(left, $from 0%, $to 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$from), color-stop(100%,$to)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, $from 0%, $to 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, $from 0%, $to 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, $from 0%, $to 100%); /* IE10+ */
+  background: linear-gradient(to right, $from 0%, $to 100%); /* W3C */
+}
