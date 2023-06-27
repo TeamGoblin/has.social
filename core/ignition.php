@@ -47,7 +47,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $_FUEL = $_GET;
         break;
     case !strcasecmp($_SERVER['REQUEST_METHOD'],'POST'):
-        $_FUEL['raw_body'] = json_decode( file_get_contents( 'php://input' ), true );
+        $_FUEL['raw_body'] = json_decode( file_get_contents('php://input' ), true);
         $_FUEL += $_POST;
         $_FUEL += $_FILES;
         break;

@@ -38,9 +38,9 @@ class JET {
 		$id = (!empty($_FUEL['user'])) ? $_FUEL['user'] : 0;
 		$_user = new currentUser(array('id' => $id));
 
-		$_controller = new $controller($_user);
-		echo $_controller->$function($params);
-		exit;
+		$_controller = new $controller();
+		$_controller->$function($params);
+		return $_controller;
 	}
 
 

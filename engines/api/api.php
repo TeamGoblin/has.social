@@ -37,6 +37,6 @@ class API {
 
     /* Print addon */
     public function __toString() {
-        return $this->theme->render($this->vars);
+        return $this->theme->print();
     }
 }
