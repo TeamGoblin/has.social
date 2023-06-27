@@ -12,9 +12,18 @@ include_once(__DIR__ . '/../core/ignition.php');
 /* Load site router */
 include_once(__DIR__ . '/../engines/routes.php');
 
-error_log('wow');
-error_log($_SERVER['REQUEST_METHOD']);
-error_log($_SERVER['SCRIPT_FILENAME']);
+/* Load subdomain router */
+$subdomain = array_shift((explode('.', $_SERVER['HTTP_HOST'])));
+switch ($subdomain) {
+    case "cdn":
+        include_once(__DIR__ . '/../engines/cdn.routes.php');
+    break;
+    case "ip":
+        include_once(__DIR__ . '/../engines/ip.routes.php');
+    break;
+    default:
+        include_once(__DIR__ . '/../engines/routes.php');    
+}
 
 use Phroute\Phroute\RouteCollector;
 use Phroute\Phroute\Dispatcher;
